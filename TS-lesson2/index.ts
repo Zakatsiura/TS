@@ -1,3 +1,5 @@
+// Task 1
+
 abstract class Car {
   constructor(public name: string) {}
   abstract model();
@@ -91,3 +93,5 @@ mercedes600.type = 'S 600';
 mercedes600.power = 520;
 
 console.log(mercedes600);
+
+// Task 2
