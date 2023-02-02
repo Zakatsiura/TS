@@ -95,3 +95,4 @@ mercedes600.power = 520;
 console.log(mercedes600);
 
 // Task 2
+//
