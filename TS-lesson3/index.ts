@@ -1,7 +1,9 @@
 class MyPowerDictionary<TKey, TValue, TDescription> {
   private _data: MyPowerDictionary<TKey, TValue, TDescription>[] = [];
 
-  public set _key(value: TKey) {
+  private _key: TKey;
+
+  public set key(value: TKey) {
     if (value == null || value == undefined) {
       throw new Error('Значение value не может быть пустым.');
     }
@@ -10,7 +12,9 @@ class MyPowerDictionary<TKey, TValue, TDescription> {
   public get key(): TKey {
     return this._key;
   }
-  public set _value(value: TValue) {
+  private _value: TValue;
+
+  public set value(value: TValue) {
     if (value == null || value == undefined) {
       throw new Error('Значение value не может быть пустым.');
     }
@@ -19,7 +23,10 @@ class MyPowerDictionary<TKey, TValue, TDescription> {
   public get value(): TValue {
     return this._value;
   }
-  public set _description(value: TDescription) {
+
+  private _description: TDescription;
+
+  public set description(value: TDescription) {
     if (value == null || value == undefined) {
       throw new Error('Значение value не может быть пустым.');
     }
