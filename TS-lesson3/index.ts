@@ -1,3 +1,9 @@
+// Создать словарь собственных определений, используя Generic function. Внутри должно быть
+// определение для 3 свойств – ключ, значение, описание (различных типов данных). Для получения или
+// записи использовать get/set реализацию доступа. Также для полей нужно использовать модификаторы
+// доступа (на Ваш выбор). В итоге должен получится словарь терминов, принимающий на входящий
+// параметр различные типы данных для реализации.
+
 class MyPowerDictionary<TKey, TValue, TDescription> {
   private _data: MyPowerDictionary<TKey, TValue, TDescription>[] = [];
 
@@ -57,3 +63,37 @@ let dictionary = new MyPowerDictionary<string, string, string>();
 dictionary.add('hello', 'привет', 'приветствие');
 dictionary.add('book', 'книга', 'бумажный носитель информации');
 dictionary.add('apple', 'яблоко', 'фрукт');
+
+// Создайте экземпляр класса, в конструктор которого пользователь будет передавать строковые значения.
+// Установите в классе метод для определения функции генератора, которая на каждом значении в
+// свойствах класса устанавливает yield. При вызове данной функции из класса проверьте все значения,
+// введенные пользователем и остановите перебор – в случае если пользователь ввел числовое значение.
+// Ошибку выведите в консоль.
+
+class MyClass {
+  private value: string[] = [];
+  constructor() {
+    this.value[0] = 'String1';
+    this.value[1] = 'String2';
+    this.value[2] = 'String3';
+  }
+  *getValue() {
+    for (let i = 0; i < this.value.length; i++) {
+      if (this.value[i] !== 'string') {
+        throw 'Error';
+      } else {
+        yield this.value[i];
+      }
+    }
+  }
+}
+
+let firstClass = new MyClass().getValue();
+let result = '';
+
+for (const subClass of firstClass) {
+  result += subClass;
+}
+
+console.log(result);
+console.log(firstClass);
